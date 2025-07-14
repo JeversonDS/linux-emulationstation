@@ -23,6 +23,7 @@ cd linux-emulationstation
 ```
 
 <br>
+
 ```bash
 cmake .
 ```
