@@ -28,6 +28,7 @@ cd linux-emulationstation
 cmake .
 ```
 
+<br>
 ```bash
 make -j$(nproc)
 ```
