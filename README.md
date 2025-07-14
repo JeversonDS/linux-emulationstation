@@ -12,7 +12,7 @@ sudo apt-get install libsdl2-dev libsdl2-mixer-dev libfreeimage-dev libfreetype6
 <br>
 
 ```bash
-git clone --recursive https://github.com/JeversonDS/linux-emulationstation.git
+cd ~/Documents && git clone --recursive https://github.com/JeversonDS/linux-emulationstation.git
 ```
 
 <br>
