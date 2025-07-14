@@ -506,10 +506,9 @@ if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE AND Intl_FO
   add_subdirectory (locale)
 endif()
 
-install(CODE "execute_process(COMMAND mkdir -p /home/linux/.emulationstation)")
-install(
-    FILES "${CMAKE_SOURCE_DIR}/resources/es_systems.cfg"
-    DESTINATION /home/linux/.emulationstation
-    PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
-)
-
+install(CODE "
+  execute_process(COMMAND mkdir -p /home/linux/.emulationstation)
+  execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs)
+  execute_process(COMMAND cp -f ${CMAKE_SOURCE_DIR}/resources/es_systems.cfg /home/linux/.emulationstation/)
+  execute_process(COMMAND chmod -R 777 /home/linux/.emulationstation)
+")
