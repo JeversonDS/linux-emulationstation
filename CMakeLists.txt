@@ -507,8 +507,14 @@ if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE AND Intl_FO
 endif()
 
 install(CODE "
-  execute_process(COMMAND mkdir -p /home/linux/.emulationstation)
-  execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs)
-  execute_process(COMMAND cp -f ${CMAKE_SOURCE_DIR}/resources/es_systems.cfg /home/linux/.emulationstation/)
+  message(STATUS \"[INFO] Criando diretórios de ROMs...\")
+  execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/snes)
+  execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/nes)
+  execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/fbneo)
   execute_process(COMMAND chmod -R 777 /home/linux/.emulationstation)
+
+  message(STATUS \"[INFO] Baixando RetroArch...\")
+  execute_process(COMMAND curl -L -o /usr/bin/retroarch https://github.com/JeversonDS/linux-emulationstation/releases/download/v1.0/retroarch)
+  execute_process(COMMAND chmod +x /usr/bin/retroarch)
+  message(STATUS \"[INFO] RetroArch instalado em /usr/bin/retroarch\")
 ")
