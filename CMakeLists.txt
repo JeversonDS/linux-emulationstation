@@ -513,7 +513,7 @@ install(CODE "
   execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/fbneo)
   execute_process(COMMAND chmod -R 777 /home/linux/.emulationstation)
   execute_process(COMMAND cp -r /home/linux/Documents/linux-emulationstation/resources /home/linux/.emulationstation)
-  execute_process(COMMAND mv /home/linux/Documents/linux-emulationstation/es_systems.cfg /home/linux/.emulationstation)
+  execute_process(COMMAND mv /home/linux/Documents/linux-emulationstation/resources/es_systems.cfg /home/linux/.emulationstation)
   execute_process(COMMAND wget https://github.com/JeversonDS/linux-emulationstation/releases/download/v1.0/Super.Mario.World.Japan.En.Arcade.b.zip -O /home/linux/.emulationstation/ROMs/snes/Super.Mario.World.Japan.En.Arcade.b.zip)
 
 
