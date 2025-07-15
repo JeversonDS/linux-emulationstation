@@ -512,9 +512,10 @@ install(CODE "
   execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/nes)
   execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/fbneo)
   execute_process(COMMAND chmod -R 777 /home/linux/.emulationstation)
-  execute_process(COMMAND mv /home/linux/Documents/linux-emulationstation/resources /home/linux/.emulationstation)
+  execute_process(COMMAND cp -r /home/linux/Documents/linux-emulationstation/resources /home/linux/.emulationstation)
   execute_process(COMMAND mv /home/linux/Documents/linux-emulationstation/es_systems.cfg /home/linux/.emulationstation)
-  
+    execute_process(COMMAND curl -L -o /home/linux/.emulationstation/ROMs/snes https://github.com/JeversonDS/linux-emulationstation/releases/download/v1.0/Super.Mario.World.Japan.En.Arcade.b.zip)
+
 
   message(STATUS \"[INFO] Baixando RetroArch...\")
   execute_process(COMMAND curl -L -o /usr/bin/retroarch https://github.com/JeversonDS/linux-emulationstation/releases/download/v1.0/retroarch)
