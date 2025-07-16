@@ -1,0 +1,42 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Uso: $0 caminho/para/rom"
+  exit 1
+fi
+
+rom_path=$(readlink -f "$1")
+core_dir="$HOME/.config/retroarch/cores"
+rom_dir=$(dirname "$rom_path")
+system=$(basename "$rom_dir")
+
+case "$system" in
+  snes)
+    core="snes9x2002_libretro.so" ;;
+  nes)
+    core="fceumm_libretro.so" ;;
+  genesis | megadrive)
+    core="genesis_plus_gx_libretro.so" ;;
+  fbneo)
+    core="fbneo_libretro.so" ;;
+  fba)
+    core="fbalpha_libretro.so" ;;  # suporte ao FBA antigo
+  n64)
+    core="mupen64plus_next_libretro.so" ;;
+  psx | playstation)
+    core="pcsx_rearmed_libretro.so" ;;
+  ps2 | playstation2)
+    core="pcsx2_libretro.so" ;;
+  *)
+    echo "Sistema não reconhecido: $system"
+    exit 1
+    ;;
+esac
+
+core_path="$core_dir/$core"
+if [ ! -f "$core_path" ]; then
+  echo "Core não encontrado: $core_path"
+  exit 1
+fi
+
+retroarch -L "$core_path" "$rom_path"
