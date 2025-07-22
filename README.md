@@ -33,3 +33,7 @@ cmake .
 ```bash
 make -j$(nproc)
 ```
+
+```bash
+sudo make install
+```
