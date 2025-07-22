@@ -512,13 +512,10 @@ install(CODE "
   execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/nes)
   execute_process(COMMAND mkdir -p /home/linux/.emulationstation/ROMs/fbneo)
   execute_process(COMMAND chmod -R 777 /home/linux/.emulationstation)
+  execute_process(COMMAND git clone --recursive https://github.com/PixelNostalgia/Hypermax-Plus-PixN /home/linux/.emulationstation/Hypermax-Plus-PixN)
   execute_process(COMMAND cp -r /home/linux/Documents/linux-emulationstation/resources /home/linux/.emulationstation)
+  execute_process(COMMAND cp -r /home/linux/Documents/linux-emulationstation/load /usr/bin)
   execute_process(COMMAND mv /home/linux/Documents/linux-emulationstation/resources/es_systems.cfg /home/linux/.emulationstation)
   execute_process(COMMAND wget https://github.com/JeversonDS/linux-emulationstation/releases/download/v1.0/Super.Mario.World.Japan.En.Arcade.b.zip -O /home/linux/.emulationstation/ROMs/snes/Super.Mario.World.Japan.En.Arcade.b.zip)
 
-
-  message(STATUS \"[INFO] Baixando RetroArch...\")
-  execute_process(COMMAND curl -L -o /usr/bin/retroarch https://github.com/JeversonDS/linux-emulationstation/releases/download/v1.0/retroarch)
-  execute_process(COMMAND chmod +x /usr/bin/retroarch)
-  message(STATUS \"[INFO] RetroArch instalado em /usr/bin/retroarch\")
 ")
